@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>grid task</title> 
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+</head>
+<body>
+    <div id="div"></div>
+    <script>
+      const element1 = document.getElementById("div");     
+      const element2 = React.createElement("div",{ className: "a",style:{border:"1px solid black",padding:"30px"} },);  
+      const element3 = React.createElement("div",{className: "b",style:{ display:"grid",gridTemplateColumns:"auto auto auto auto",gridColumnGap:"7px",gridRowGap:"7px",width:"10px",padding:"7px"}},
+         element2,
+         element2,
+         element2,
+         element2, 
+         element2,
+         element2,
+         element2,
+         element2,
+         element2,
+         element2,
+         element2,
+         element2,
+       ); 
+       ReactDOM.render(element3,element1); 
+    </script>
+  </body>
+</html>
