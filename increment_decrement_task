@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>React </title>
+    <meta charset="UTF-8" />
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="div"></div>
+    <script type="text/babel">
+      const root = document.getElementById("div");
+      const Counting=({values})=>{
+      return <p>{values}</p>;
+    };
+    const Counter=()=>{
+    const [num,setNum]=React.useState(0);
+    const increment=()=>{
+    setNum(num+1);
+  };
+   const decrement=()=>{
+    setNum(num-1);
+  };
+  return(
+  <div>
+        <div>
+            <Counting values={num}/>
+            <button onClick={increment}>Increment</button>
+            <button onClick={decrement}>Decrement</button>
+        </div>
+        <div>
+           <Counting values={num}/>
+            <button onClick={increment}>Increment</button>
+             <button onClick={decrement}>Decrement</button>
+        </div>
+        <button >Add count</button>
+    </div>
+
+  );
+};
+ReactDOM.render(<Counter/>, root);
+</script>
+</body>
+</html>
