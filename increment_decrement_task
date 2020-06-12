@@ -1,45 +1,56 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>React </title>
+<html lang="en">
+  <head>
     <meta charset="UTF-8" />
-    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div id="div"></div>
     <script type="text/babel">
-      const root = document.getElementById("div");
-      const Counting=({values})=>{
-      return <p>{values}</p>;
-    };
-    const Counter=()=>{
-    const [num,setNum]=React.useState(0);
-    const increment=()=>{
-    setNum(num+1);
-  };
-   const decrement=()=>{
-    setNum(num-1);
-  };
-  return(
-  <div>
-        <div>
-            <Counting values={num}/>
+    const element=document.getElementById("div")
+    const Counting1 = (props) => {
+       const [num, setNum] = React.useState(0);
+       const increment = () => {
+         setNum(num + 1);
+       };
+       const decrement = () => {
+         setNum(num - 1);
+       };
+       return (
+          <div>{num}<br/>
             <button onClick={increment}>Increment</button>
             <button onClick={decrement}>Decrement</button>
-        </div>
-        <div>
-           <Counting values={num}/>
-            <button onClick={increment}>Increment</button>
-             <button onClick={decrement}>Decrement</button>
-        </div>
-        <button >Add count</button>
-    </div>
-
-  );
-};
-ReactDOM.render(<Counter/>, root);
-</script>
-</body>
+          </div>
+        );
+    };
+    function CounterApp1(props) 
+    {
+        const values = props.values;
+        return <li>{values}</li>;
+    }
+      function CounterApp2(props) 
+    {
+        const final = props.final;
+        const list = final.map((num) => (
+          <CounterApp1 key={num} values={num} />
+        ));
+        return <ul>{list}</ul>;
+    }
+      const CounterApp3 = () => {
+        final.push(<Counting1/>);
+        ReactDOM.render(<div><CounterApp2 final={final} /><button onClick={CounterApp3}>Add Counter</button></div>,element);
+      };
+      const final = [<Counting1/>];
+      ReactDOM.render(<div><CounterApp2 final={final} /><button onClick={CounterApp3}>Add Counter</button></div>,element);
+    </script>
+  </body>
 </html>
